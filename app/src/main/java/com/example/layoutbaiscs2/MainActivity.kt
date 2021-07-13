@@ -1,9 +1,16 @@
+//Author: Jorge Guzman Nader
+//Date: 7/12/2021
+//Info: Android Tutorial in Kotlin
+
 package com.example.layoutbaiscs2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioButton
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.costume_toast.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         //todo 1. EDITTEXT
         //This adds 2 numbers
+        //Uses add_numbers.xml
 
 //        btnSum.setOnClickListener {
 //            val firstNumber = etFirstNumber.text.toString().toInt()
@@ -45,13 +53,17 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         //todo 2. IMAGEVIEW
+        //Uses add_image.xml
         //This adds an image of a fancy cat when a button is clicked
+
 //        btnAddImage.setOnClickListener {
 //            ivImageCat.setImageResource(R.drawable.fancy_cat)
 //        }
 
-        // todo 3. CheckBox, RadioButton
+        //todo 3. CheckBox, RadioButton
+        //Uses burger.xml
         //When you click the button ingredients of burger get displayed
+
 //        btnOrder.setOnClickListener {
 //            val checkedMeatRadioButtonId = rgMeat.checkedRadioButtonId
 //            val meat = findViewById<RadioButton>(checkedMeatRadioButtonId)
@@ -66,6 +78,33 @@ class MainActivity : AppCompatActivity() {
 //                    (if (pepper)"\nPeppers" else "")
 //            //The content of orderString is assigned to appear in the TextView tvOrder
 //            tvOrder.text = orderString
+//        }
+
+        //todo 4. Toasts, Context
+        //Uses toast_button.xml, costume_toast.xlm
+
+//        btnShowToast.setOnClickListener {
+//            Toast.makeText(this,"The cake is a Lie!",Toast.LENGTH_LONG).show()
+//        }
+        //Costume Toast
+//        btnShowToast.setOnClickListener {
+//            Toast(this).apply {
+//                duration = Toast.LENGTH_LONG
+//                view = layoutInflater.inflate(R.layout.costume_toast,clToast)
+//                show()
+//            }
+//
+//        }
+
+        //todo 5. Intent, Starting Activities
+        //Uses AndroidManifest.xml, activity_open.xml, activity_second.xml, SecondActivity, activity_third.xml, ThirdActivity
+        //This code teaches how to transition between windows with a button click
+        //Use "this" for context
+
+//        btnOpenActivity.setOnClickListener {
+//            Intent(this,SecondActivity::class.java).also {
+//                startActivity(it)
+//            }
 //        }
 
 

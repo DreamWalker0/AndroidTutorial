@@ -9,13 +9,15 @@
         android:roundIcon="@drawable/ic_eye"
         android:supportsRtl="true"
         android:theme="@style/Theme.LayoutBaiscs2">
+        <activity android:name=".ThirdActivity"></activity>
+        <activity android:name=".SecondActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- This defines the second activity to allow to navigate -->
     </application>
 
 </manifest>
