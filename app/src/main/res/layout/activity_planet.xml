@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".MainActivity">
+    tools:context=".PlanetActivity">
 
-    <Button
-        android:id="@+id/btnRequestPermissions"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvPlanet"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Request permissions"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Welcome"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/teal_200"/>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.layoutbaiscs2">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_eye"
@@ -9,7 +14,8 @@
         android:roundIcon="@drawable/ic_eye"
         android:supportsRtl="true"
         android:theme="@style/Theme.LayoutBaiscs2">
-        <activity android:name=".ThirdActivity"></activity>
+        <activity android:name=".PlanetActivity"></activity>
+        <activity android:name=".ThirdActivity" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -17,7 +23,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- This defines the second activity to allow to navigate -->
+        </activity>
     </application>
 
 </manifest>
