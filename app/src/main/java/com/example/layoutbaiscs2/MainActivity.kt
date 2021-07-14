@@ -14,9 +14,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.costume_toast.*
 
@@ -151,76 +155,136 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
-        // todo 10. Alert Dialog
+        // todo 9. Alert Dialog
+        //Refer to alert_dialog_buttons
         //For adding contacts alert dialog
-        val addContactDialog = AlertDialog.Builder(this)
-            .setTitle("Add Contact")
-            .setMessage("Do you want to add Pyramid Head to your contacts list?")
-            .setIcon(R.drawable.ic_add_contact_dark)
-            .setPositiveButton("Yes"){_, _ ->
-                Toast.makeText(this, "You added Pyramid Head to your contacts list", Toast.LENGTH_SHORT).show()
+//        val addContactDialog = AlertDialog.Builder(this)
+//            .setTitle("Add Contact")
+//            .setMessage("Do you want to add Pyramid Head to your contacts list?")
+//            .setIcon(R.drawable.ic_add_contact_dark)
+//            .setPositiveButton("Yes"){_, _ ->
+//                Toast.makeText(this, "You added Pyramid Head to your contacts list", Toast.LENGTH_SHORT).show()
+//
+//            }
+//            .setNegativeButton("No"){_, _ ->
+//                Toast.makeText(this, "You didn't add Pyramid Head to your contacts list", Toast.LENGTH_SHORT).show()
+//
+//            }.create()
+//
+//        //When clicked button 1
+//        btnDialog1.setOnClickListener {
+//            addContactDialog.show()
+//        }
+//
+//        //For one choice alert dialog
+//        val options = arrayOf("Past", "Present", "Future")
+//        val singleChoiceDialog = AlertDialog.Builder(this)
+//            .setTitle("Choose one of these options")
+//            .setSingleChoiceItems(options,0){dialogInterface, i ->
+//                Toast.makeText(this,"You have accepted your destination to be ${options[i]}", Toast.LENGTH_SHORT).show()
+//            }
+//            .setPositiveButton("Accept"){_, _ ->
+//                Toast.makeText(this, "You accepted to travel to the unknown", Toast.LENGTH_SHORT).show()
+//
+//            }
+//            .setNegativeButton("Decline"){_, _ ->
+//                Toast.makeText(this, "You declined to explore the unknown", Toast.LENGTH_SHORT).show()
+//
+//            }.create()
+//
+//        btnDialog2.setOnClickListener {
+//            singleChoiceDialog.show()
+//        }
+//
+//        //For multi-choice alert dialog
+//        val multiChoiceDialog = AlertDialog.Builder(this)
+//            .setTitle("Choose one of these options")
+//                //Initialize the 3 of the options to false so they are unchecked
+//            .setMultiChoiceItems(options, booleanArrayOf(false,false,false)){_, i, isChecked ->
+//                if (isChecked){
+//                    Toast.makeText(this, "You selected ${options[i]}",Toast.LENGTH_SHORT).show()
+//                } else{
+//                    Toast.makeText(this, "You eliminated ${options[i]}",Toast.LENGTH_SHORT).show()
+//                }
+//
+//            }
+//            .setPositiveButton("Accept"){_, _ ->
+//                Toast.makeText(this, "You accepted to travel to the multiverse", Toast.LENGTH_SHORT).show()
+//
+//            }
+//            .setNegativeButton("Decline"){_, _ ->
+//                Toast.makeText(this, "You declined to explore the multiverse", Toast.LENGTH_SHORT).show()
+//
+//            }.create()
+//
+//        btnDialog3.setOnClickListener {
+//            multiChoiceDialog.show()
+//        }
 
-            }
-            .setNegativeButton("No"){_, _ ->
-                Toast.makeText(this, "You didn't add Pyramid Head to your contacts list", Toast.LENGTH_SHORT).show()
+        //todo 10. Spinner
+        //Refer to months inside strings.xml, spinner_experiment.xml
 
-            }.create()
+        //Creates an spinner and select the items in it
+//        val customList = listOf("Fire","Water","Air","Earth")
+//        val adapter = ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,customList)
+//        spMonths.adapter = adapter
+//
+//
+//        //This displays selected months in a message
+//        spMonths.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {//using this@MainActivity because if using just "this" will refer to AdapterView
+//                Toast.makeText(this@MainActivity,
+//                    "You selected ${parent?.getItemAtPosition(position).toString()}",
+//                    Toast.LENGTH_LONG).show()
+//            }
+//
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//
+//            }
+//        }
 
-        //When clicked button 1
-        btnDialog1.setOnClickListener {
-            addContactDialog.show()
-        }
+        //todo 11.RecyclerView
+        //uses 'implementation 'androidx.recyclerview:recyclerview 1.1.0'
+        //inside build.gradle(module:LayoutBasics.app)
+        //Refer to item_todo.xml, recyclerview_experiment.xml, TodoAdapter.kt, T/odo.kt
 
-        //For one choice alert dialog
-        val options = arrayOf("Past", "Present", "Future")
-        val singleChoiceDialog = AlertDialog.Builder(this)
-            .setTitle("Choose one of these options")
-            .setSingleChoiceItems(options,0){dialogInterface, i ->
-                Toast.makeText(this,"You have accepted your destination to be ${options[i]}", Toast.LENGTH_SHORT).show()
-            }
-            .setPositiveButton("Accept"){_, _ ->
-                Toast.makeText(this, "You accepted to travel to the unknown", Toast.LENGTH_SHORT).show()
+//        var todoList = mutableListOf(
+//            Todo("Eat vegetables",true),
+//            Todo("Rise an army",false),
+//            Todo("Ponder",false),
+//            Todo("Try",false),
+//            Todo("Fail",false),
+//            Todo("Try again",false),
+//            Todo("Fail again",false),
+//            Todo("Try until you get it",false)
+//        )
+//        val adapter = TodoAdapter(todoList)
+//        rvTodos.adapter = adapter
+//        rvTodos.layoutManager =LinearLayoutManager(this)
+//
+//        btnTodo.setOnClickListener {
+//            val title = etTodo.text.toString()
+//            val todo = Todo(title,false)
+//            todoList.add(todo)
+//            //for update recyclerView
+//            adapter.notifyItemInserted(todoList.size - 1)
+//        }
 
-            }
-            .setNegativeButton("Decline"){_, _ ->
-                Toast.makeText(this, "You declined to explore the unknown", Toast.LENGTH_SHORT).show()
-
-            }.create()
-
-        btnDialog2.setOnClickListener {
-            singleChoiceDialog.show()
-        }
-
-        //For multi-choice alert dialog
-        val multiChoiceDialog = AlertDialog.Builder(this)
-            .setTitle("Choose one of these options")
-                //Initialize the 3 of the options to false so they are unchecked
-            .setMultiChoiceItems(options, booleanArrayOf(false,false,false)){_, i, isChecked ->
-                if (isChecked){
-                    Toast.makeText(this, "You selected ${options[i]}",Toast.LENGTH_SHORT).show()
-                } else{
-                    Toast.makeText(this, "You eliminated ${options[i]}",Toast.LENGTH_SHORT).show()
-                }
-
-            }
-            .setPositiveButton("Accept"){_, _ ->
-                Toast.makeText(this, "You accepted to travel to the multiverse", Toast.LENGTH_SHORT).show()
-
-            }
-            .setNegativeButton("Decline"){_, _ ->
-                Toast.makeText(this, "You declined to explore the multiverse", Toast.LENGTH_SHORT).show()
-
-            }.create()
-
-        btnDialog3.setOnClickListener {
-            multiChoiceDialog.show()
-        }
+        //todo 12. Fragments
 
 
 
+
+
+    //END OnCreate
     }
 
-        //todo 9. Toolbar Menu
+        //todo 13. Toolbar Menu
 //        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //            menuInflater.inflate(R.menu.app_bar_menu,menu)
 //            return true
