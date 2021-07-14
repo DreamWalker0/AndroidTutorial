@@ -5,11 +5,15 @@
 package com.example.layoutbaiscs2
 
 import android.Manifest
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -45,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 //            tvCount.text = "Let's Count: $count"
 //        }
 
-        //todo 1. EDITTEXT
+        //todo 1. EditText
         //This adds 2 numbers
         //Uses add_numbers.xml
 
@@ -56,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 //            tvResult.text = result.toString()
 //        }
 
-        //todo 2. IMAGEVIEW
+        //todo 2. ImageView
         //Uses add_image.xml
         //This adds an image of a fancy cat when a button is clicked
 
@@ -135,12 +139,126 @@ class MainActivity : AppCompatActivity() {
 //            requestPermissions()
 //        }
 
+        //todo 8. Implicit Intents
+        //Uses choose_image.xml , functions below
+        //This allows to chose a picture from gallery and other places
+//        btnTakePhoto.setOnClickListener {
+//            Intent(Intent.ACTION_GET_CONTENT).also {
+//                //image/* looks for all image
+//                //another example could be image/png
+//                it.type = "image/*"
+//                startActivityForResult(it,0)
+//            }
+//        }
+
+        // todo 10. Alert Dialog
+        //For adding contacts alert dialog
+        val addContactDialog = AlertDialog.Builder(this)
+            .setTitle("Add Contact")
+            .setMessage("Do you want to add Pyramid Head to your contacts list?")
+            .setIcon(R.drawable.ic_add_contact_dark)
+            .setPositiveButton("Yes"){_, _ ->
+                Toast.makeText(this, "You added Pyramid Head to your contacts list", Toast.LENGTH_SHORT).show()
+
+            }
+            .setNegativeButton("No"){_, _ ->
+                Toast.makeText(this, "You didn't add Pyramid Head to your contacts list", Toast.LENGTH_SHORT).show()
+
+            }.create()
+
+        //When clicked button 1
+        btnDialog1.setOnClickListener {
+            addContactDialog.show()
+        }
+
+        //For one choice alert dialog
+        val options = arrayOf("Past", "Present", "Future")
+        val singleChoiceDialog = AlertDialog.Builder(this)
+            .setTitle("Choose one of these options")
+            .setSingleChoiceItems(options,0){dialogInterface, i ->
+                Toast.makeText(this,"You have accepted your destination to be ${options[i]}", Toast.LENGTH_SHORT).show()
+            }
+            .setPositiveButton("Accept"){_, _ ->
+                Toast.makeText(this, "You accepted to travel to the unknown", Toast.LENGTH_SHORT).show()
+
+            }
+            .setNegativeButton("Decline"){_, _ ->
+                Toast.makeText(this, "You declined to explore the unknown", Toast.LENGTH_SHORT).show()
+
+            }.create()
+
+        btnDialog2.setOnClickListener {
+            singleChoiceDialog.show()
+        }
+
+        //For multi-choice alert dialog
+        val multiChoiceDialog = AlertDialog.Builder(this)
+            .setTitle("Choose one of these options")
+                //Initialize the 3 of the options to false so they are unchecked
+            .setMultiChoiceItems(options, booleanArrayOf(false,false,false)){_, i, isChecked ->
+                if (isChecked){
+                    Toast.makeText(this, "You selected ${options[i]}",Toast.LENGTH_SHORT).show()
+                } else{
+                    Toast.makeText(this, "You eliminated ${options[i]}",Toast.LENGTH_SHORT).show()
+                }
+
+            }
+            .setPositiveButton("Accept"){_, _ ->
+                Toast.makeText(this, "You accepted to travel to the multiverse", Toast.LENGTH_SHORT).show()
+
+            }
+            .setNegativeButton("Decline"){_, _ ->
+                Toast.makeText(this, "You declined to explore the multiverse", Toast.LENGTH_SHORT).show()
+
+            }.create()
+
+        btnDialog3.setOnClickListener {
+            multiChoiceDialog.show()
+        }
 
 
 
     }
 
-    //Permissions
+        //todo 9. Toolbar Menu
+//        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//            menuInflater.inflate(R.menu.app_bar_menu,menu)
+//            return true
+//        }
+//
+//        //This allows the use of the menu icons
+//        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//            when(item.itemId){
+//                R.id.miAddContact -> Toast.makeText(this,"You Clicked on Add Contact", Toast.LENGTH_SHORT).show()
+//                R.id.miFavorites -> Toast.makeText(this,"You Clicked on Favorites", Toast.LENGTH_SHORT).show()
+//                R.id.miSettings -> Toast.makeText(this,"You Clicked on Settings", Toast.LENGTH_SHORT).show()
+//                R.id.miClose -> finish()
+//                R.id.miFeedback -> Toast.makeText(this,"You Clicked on Feedback", Toast.LENGTH_SHORT).show()
+//            }
+//            return true
+//        }
+
+
+
+
+
+
+
+
+
+
+
+    //8. Implicit Intents
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, thisData: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, thisData)
+//        if (resultCode == Activity.RESULT_OK && requestCode == 0){
+//            val uri = thisData?.data
+//            ivPhoto.setImageURI(uri)
+//        }
+//
+//    }
+
+    //7.Permissions
 //    private fun hasWriteExternalStoragePermission() =
 //        ActivityCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
 //    private fun hasForegroundPermission() =
@@ -182,4 +300,6 @@ class MainActivity : AppCompatActivity() {
 //
 //        }
 //    }
+
+//END Main
 }

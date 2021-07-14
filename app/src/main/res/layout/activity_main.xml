@@ -8,17 +8,34 @@
     android:padding="20dp"
     tools:context=".MainActivity">
 
+
     <Button
-        android:id="@+id/btnRequestPermissions"
+        android:id="@+id/btnDialog1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Request permissions"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Dialog1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/teal_200"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnDialog2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dialog2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDialog1" />
 
+    <Button
+        android:id="@+id/btnDialog3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dialog3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDialog2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
