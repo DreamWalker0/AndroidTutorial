@@ -20,6 +20,7 @@ import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.costume_toast.*
@@ -341,6 +342,32 @@ class MainActivity : AppCompatActivity() {
 //        //with: similar to run
 //        with(Intent()){}
 
+        //todo 14. Bottom Navigation View
+        //Refer to bottom_nav_menu , bottom_nav_view, bottom_fragment1..3, BottomFirst...ThirdFragment
+//        val firstFragment = BottomFirstFragment()
+//        val secondFragment = BottomSecondFragment()
+//        val thirdFragment = BottomThirdFragment()
+//
+//        setCurrentFragment(firstFragment)
+//
+//        bottomNavigationView.setOnNavigationItemSelectedListener {
+//            when(it.itemId){
+//                R.id.miHome -> setCurrentFragment(firstFragment)
+//                R.id.miMessages -> setCurrentFragment(secondFragment)
+//                R.id.miProfile -> setCurrentFragment(thirdFragment)
+//            }
+//            true
+//        }
+//
+//        //For display number of notifications over icons
+//        bottomNavigationView.getOrCreateBadge(R.id.miMessages).apply {
+//            number = 1000000
+//            isVisible = true
+//        }
+
+
+
+
 
 
 
@@ -348,7 +375,14 @@ class MainActivity : AppCompatActivity() {
     //END OnCreate
     }
 
-        //todo 14. Toolbar Menu
+    //14 Bottom Navigation View
+//    private fun setCurrentFragment(fragment: Fragment) =
+//        supportFragmentManager.beginTransaction().apply {
+//            replace(R.id.flFragment,fragment)
+//            commit()
+//        }
+
+        //todo 15. Toolbar Menu
 //        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //            menuInflater.inflate(R.menu.app_bar_menu,menu)
 //            return true
