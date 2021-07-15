@@ -19,6 +19,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,11 +28,16 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.costume_toast.*
+import kotlinx.android.synthetic.main.drawer_layout_manu.*
 
 class MainActivity : AppCompatActivity() {
+
+    //17.
+    lateinit var toggle: ActionBarDrawerToggle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.drawer_layout_manu)
 
         /**
          * New way
@@ -391,45 +397,71 @@ class MainActivity : AppCompatActivity() {
 //        viewPager.fakeDragBy(-10f)
 //        viewPager.endFakeDrag()
 
-        //todo 16.tab layout in ViewPager2
+        //todo 16. Tab layout in ViewPager2
         //Refer to view_pager2_tabs
         //Refer to view_pager2_example, item_view_pager, ViewPagerAdapter
         //needs a LinerLayout in the xml
 
         //list of image resources
-        val images = listOf(
-            R.drawable.fancy_cat,
-            R.drawable.fancy_cat2,
-            R.drawable.fancy_cat3,
-            R.drawable.fancy_cat4,
-            R.drawable.fancy_cat5
-        )
+//        val images = listOf(
+//            R.drawable.fancy_cat,
+//            R.drawable.fancy_cat2,
+//            R.drawable.fancy_cat3,
+//            R.drawable.fancy_cat4,
+//            R.drawable.fancy_cat5
+//        )
+//
+//        val adapter = ViewPagerAdapter(images)
+//        viewPager.adapter = adapter
+//
+//        //For change orientation of swipe
+//        viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
+//
+//        //position starts at 0 that is why use +1
+//        TabLayoutMediator(tabLayout1,viewPager){tab, position->
+//            tab.text = "Tab ${position + 1}"
+//        }.attach()
+//
+//        //respond to events, message when selecting tabs
+//        tabLayout1.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+//            override fun onTabSelected(tab: TabLayout.Tab?) {
+//                Toast.makeText(this@MainActivity,"Reselected ${tab?.text}", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onTabUnselected(tab: TabLayout.Tab?) {
+//                Toast.makeText(this@MainActivity,"Unselected ${tab?.text}", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onTabReselected(tab: TabLayout.Tab?) {
+//                Toast.makeText(this@MainActivity,"Selected ${tab?.text}", Toast.LENGTH_SHORT).show()
+//            }
+//        })
 
-        val adapter = ViewPagerAdapter(images)
-        viewPager.adapter = adapter
+        //todo 17. Slidable menu with Navigation Drawer
+        //refer to drawer_layout_menu, nav_header, nav_drawer_menu, function onOptionsItemSelected
+        //On the top of the Main uses: lateinit var toggle: ActionBarDrawerToggle
+        //R.string.open, R.string.close used for read-out-load if person can't see well, implementation is on the string.xml
+//        toggle  = ActionBarDrawerToggle(this, drawerlayout, R.string.open, R.string.close)
+//
+//        drawerlayout.addDrawerListener(toggle)
+//        //This tell toggle that is ready to be used
+//        toggle.syncState()
+//
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//
+//        //Respond to menu item clicks
+//        navView.setNavigationItemSelectedListener {
+//            when(it.itemId){
+//                R.id.miItem1 -> Toast.makeText(applicationContext,"Clicked item 1", Toast.LENGTH_SHORT).show()
+//                R.id.miItem2 -> Toast.makeText(applicationContext,"Clicked item 2", Toast.LENGTH_SHORT).show()
+//                R.id.miItem3 -> Toast.makeText(applicationContext,"Clicked item 3", Toast.LENGTH_SHORT).show()
+//            }
+//            true
+//        }
 
-        //For change orientation of swipe
-        viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
+        //todo 18.
 
-        //position starts at 0 that is why use +1
-        TabLayoutMediator(tabLayout1,viewPager){tab, position->
-            tab.text = "Tab ${position + 1}"
-        }.attach()
 
-        //respond to events, message when selecting tabs
-        tabLayout1.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                Toast.makeText(this@MainActivity,"Reselected ${tab?.text}", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-                Toast.makeText(this@MainActivity,"Unselected ${tab?.text}", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-                Toast.makeText(this@MainActivity,"Selected ${tab?.text}", Toast.LENGTH_SHORT).show()
-            }
-        })
 
 
 
@@ -443,6 +475,13 @@ class MainActivity : AppCompatActivity() {
     //END OnCreate
     }
 
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        if (toggle.onOptionsItemSelected(item)){
+//            return true
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
+
     //14 Bottom Navigation View
 //    private fun setCurrentFragment(fragment: Fragment) =
 //        supportFragmentManager.beginTransaction().apply {
@@ -450,7 +489,7 @@ class MainActivity : AppCompatActivity() {
 //            commit()
 //        }
 
-        //todo 16. Toolbar Menu
+        //todo 18. Toolbar Menu
 //        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //            menuInflater.inflate(R.menu.app_bar_menu,menu)
 //            return true
