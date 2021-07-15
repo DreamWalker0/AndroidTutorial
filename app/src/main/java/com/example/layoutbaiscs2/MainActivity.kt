@@ -276,6 +276,31 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         //todo 12. Fragments
+//        //refer to fragment_ui , fragment_first, fragment_second, FirstFragment, SecondFragment
+//        val firstFragment = FistFragment()
+//        val secondFragment = SecondFragment()
+//
+//        supportFragmentManager.beginTransaction().apply {
+//            replace(R.id.flFragment,firstFragment)
+//            commit()
+//        }
+//
+//        btnFragment1.setOnClickListener {
+//            supportFragmentManager.beginTransaction().apply {
+//                replace(R.id.flFragment,firstFragment)
+//                //addToBackStack(null) is important so when click in back the app don't just exit
+//                addToBackStack(null)
+//                commit()
+//            }
+//        }
+//
+//        btnFragment2.setOnClickListener {
+//            supportFragmentManager.beginTransaction().apply {
+//                replace(R.id.flFragment,secondFragment)
+//                addToBackStack(null)
+//                commit()
+//            }
+//        }
 
 
 
