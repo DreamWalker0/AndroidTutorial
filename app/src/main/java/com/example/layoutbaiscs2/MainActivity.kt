@@ -302,6 +302,45 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
+        //todo 13. Scope Functions
+        //let: Used to check nulls, also better than simple null check in multi-threading case
+//        var number:Int? = null
+//        number?.let{
+//            val newNumber = it + 1
+//            //This will be the type of the number, ex.Int
+//            newNumber
+//        }
+//        //assigning variable using let, to x = 3
+//        var x = number?.let{
+//            val newNumber = it + 1
+//            //This will be the type of the number, ex.Int
+//            newNumber
+//        } ?: 3
+//
+//        //also:let you do additional things in functions and the like
+//        var item = 0
+//        fun getSquared() = ( item * item ).also {
+//            item++
+//        }
+//
+//        //apply:Used to modify object without need to call the variables every time
+//        //It returns the object
+//        //ex. person.name, just call name instead
+//        var intent = Intent().apply {
+//            putExtra("","")
+//            action = ""
+//        }
+//
+//        //run:Similar to apply but will return the last line instead of the object Intent()
+//        var intent2 = Intent().run {
+//            putExtra("","")
+//            action = ""
+//            this
+//        }
+//
+//        //with: similar to run
+//        with(Intent()){}
+
 
 
 
@@ -309,7 +348,7 @@ class MainActivity : AppCompatActivity() {
     //END OnCreate
     }
 
-        //todo 13. Toolbar Menu
+        //todo 14. Toolbar Menu
 //        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //            menuInflater.inflate(R.menu.app_bar_menu,menu)
 //            return true
