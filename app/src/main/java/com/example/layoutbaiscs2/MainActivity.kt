@@ -22,6 +22,9 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.costume_toast.*
 
@@ -365,6 +368,71 @@ class MainActivity : AppCompatActivity() {
 //            isVisible = true
 //        }
 
+        //todo 15. Swipable View using ViewPager2
+        //Refer to view_pager2_example, item_view_pager, ViewPagerAdapter
+
+        //list of image resources
+//        val images = listOf(
+//            R.drawable.fancy_cat,
+//            R.drawable.fancy_cat2,
+//            R.drawable.fancy_cat3,
+//            R.drawable.fancy_cat4,
+//            R.drawable.fancy_cat5
+//        )
+//
+//        val adapter = ViewPagerAdapter(images)
+//        viewPager.adapter = adapter
+//
+//        //For change orientation of swipe
+//        viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
+
+        //Automatic swiping - Does not work
+//        viewPager.beginFakeDrag()
+//        viewPager.fakeDragBy(-10f)
+//        viewPager.endFakeDrag()
+
+        //todo 16.tab layout in ViewPager2
+        //Refer to view_pager2_tabs
+        //Refer to view_pager2_example, item_view_pager, ViewPagerAdapter
+        //needs a LinerLayout in the xml
+
+        //list of image resources
+        val images = listOf(
+            R.drawable.fancy_cat,
+            R.drawable.fancy_cat2,
+            R.drawable.fancy_cat3,
+            R.drawable.fancy_cat4,
+            R.drawable.fancy_cat5
+        )
+
+        val adapter = ViewPagerAdapter(images)
+        viewPager.adapter = adapter
+
+        //For change orientation of swipe
+        viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
+
+        //position starts at 0 that is why use +1
+        TabLayoutMediator(tabLayout1,viewPager){tab, position->
+            tab.text = "Tab ${position + 1}"
+        }.attach()
+
+        //respond to events, message when selecting tabs
+        tabLayout1.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                Toast.makeText(this@MainActivity,"Reselected ${tab?.text}", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                Toast.makeText(this@MainActivity,"Unselected ${tab?.text}", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                Toast.makeText(this@MainActivity,"Selected ${tab?.text}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+
+
 
 
 
@@ -382,7 +450,7 @@ class MainActivity : AppCompatActivity() {
 //            commit()
 //        }
 
-        //todo 15. Toolbar Menu
+        //todo 16. Toolbar Menu
 //        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //            menuInflater.inflate(R.menu.app_bar_menu,menu)
 //            return true
