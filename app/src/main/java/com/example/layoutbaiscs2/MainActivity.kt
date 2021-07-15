@@ -29,6 +29,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.costume_toast.*
 import kotlinx.android.synthetic.main.drawer_layout_manu.*
+import kotlinx.android.synthetic.main.share_data_layout.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.drawer_layout_manu)
+        setContentView(R.layout.share_data_layout)
 
         /**
          * New way
@@ -459,9 +460,43 @@ class MainActivity : AppCompatActivity() {
 //            true
 //        }
 
-        //todo 18.
+        //todo 18. Saving data in shared preferences
+        //refer to shared_data_layout
+        //This allows to save small amounts of data and load it by clicking a button
+//        val sharedPref = getSharedPreferences("My Preferences", MODE_PRIVATE)
+//        val editor = sharedPref.edit()
+//
+//        //btn listener, for values that will be saved
+//        btnSave.setOnClickListener {
+//            val name = etName.text.toString()
+//            val age = etAge.text.toString().toInt()
+//            val isAdult = cbAdult.isChecked
+//
+//            editor.apply {
+//                //putString() uses a key, value format
+//                putString("name", name)
+//                putInt("age", age)
+//                putBoolean("isAdult", isAdult)
+//                //finish the data, commit() does the same but can block main thread
+//                apply()
+//            }
+//        }
+//
+//        //This button read the data
+//        btnLoad.setOnClickListener {
+//            //this gets a key, default value
+//            val name = sharedPref.getString("name", null)
+//            val age = sharedPref.getInt("age", 0)
+//            val isAdult = sharedPref.getBoolean("isAdult",false)
+//
+//            //setters display the value
+//            etName.setText(name)
+//            etAge.setText(age.toString())
+//            cbAdult.isChecked = isAdult
+//        }
 
 
+        //todo 19.
 
 
 
@@ -489,7 +524,7 @@ class MainActivity : AppCompatActivity() {
 //            commit()
 //        }
 
-        //todo 18. Toolbar Menu
+        //todo 20. Toolbar Menu
 //        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //            menuInflater.inflate(R.menu.app_bar_menu,menu)
 //            return true
@@ -506,14 +541,6 @@ class MainActivity : AppCompatActivity() {
 //            }
 //            return true
 //        }
-
-
-
-
-
-
-
-
 
 
 
