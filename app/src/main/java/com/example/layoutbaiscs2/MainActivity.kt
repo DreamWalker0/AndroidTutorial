@@ -6,21 +6,15 @@ package com.example.layoutbaiscs2
 
 import android.Manifest
 import android.app.*
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.RadioButton
-import android.widget.Toast
+import android.view.*
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -32,9 +26,14 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.costume_toast.*
+import kotlinx.android.synthetic.main.drag_drop.*
 import kotlinx.android.synthetic.main.drawer_layout_manu.*
 import kotlinx.android.synthetic.main.intent_service_sample.*
+import kotlinx.android.synthetic.main.intent_service_sample.btnStartService
+import kotlinx.android.synthetic.main.intent_service_sample.btnStopService
+import kotlinx.android.synthetic.main.intent_service_sample.tvServiceInfo
 import kotlinx.android.synthetic.main.notifications_example.*
+import kotlinx.android.synthetic.main.service_sample.*
 import kotlinx.android.synthetic.main.share_data_layout.*
 
 class MainActivity : AppCompatActivity() {
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.intent_service_sample)
+        setContentView(R.layout.activity_main)
 
         /**
          * New way
@@ -550,17 +549,118 @@ class MainActivity : AppCompatActivity() {
 //            tvServiceInfo.text = "Service stopped"
 //        }
 
+        //todo 21. Services
+        //refer to service_sample, class MyService
+
+//        btnStartService.setOnClickListener {
+//            Intent(this, MyService::class.java).also {
+//                startService(it)
+//                tvServiceInfo.text = "Service running"
+//            }
+//        }
+//
+//        btnStopService.setOnClickListener {
+//            Intent(this, MyService::class.java).also {
+//                stopService(it)
+//                tvServiceInfo.text = "Service stopped"
+//            }
+//        }
+//
+//        btnSendData.setOnClickListener {
+//            Intent(this, MyService::class.java).also {
+//                val dataString = etData.text.toString()
+//                it.putExtra("EXTRA_DATA", dataString)
+//                startService(it)
+//
+//            }
+//        }
+
+        //todo 22. Drag and Drop
+        //refer to drag_drop
 
 
+        //this create the button listener
+//        llTop.setOnDragListener(dragListener)
+//        llBottom.setOnDragListener(dragListener)
+//
+//
+//        dragView.setOnLongClickListener {
+//            val clipText = "This is the ClipData text"
+//            val item = ClipData.Item(clipText)
+//            val mimeTypes = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+//            val data = ClipData(clipText, mimeTypes, item)
+//
+//            val dragShadowBuilder = View.DragShadowBuilder(it)
+//            it.startDragAndDrop(data, dragShadowBuilder, it, 0)
+//
+//            it.visibility = View.INVISIBLE
+//            true
+//        }
 
+        //todo 23. Broadcast Receivers
+        //refer to class AirPlaneModeChangedReceiver
+        //Shows a message when airplane mode is enabled or disabled
 
-
-
+//        receiver = AirPlaneModeChangedReceiver()
+//
+//        IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
+//            registerReceiver(receiver,it)
+//        }
 
 
 
     //END OnCreate
     }
+
+
+    //23. Broadcast Receivers
+    //This is needed to prevent a memory leak
+
+//    lateinit var receiver: AirPlaneModeChangedReceiver
+//
+//    override fun onStop() {
+//        super.onStop()
+//        unregisterReceiver(receiver)
+//    }
+
+    //22. Drag and Drop
+//    val dragListener = View.OnDragListener { view, event ->
+//        when(event.action){
+//            DragEvent.ACTION_DRAG_STARTED -> {
+//                event.clipDescription.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)
+//            }
+//            DragEvent.ACTION_DRAG_ENTERED -> {
+//                view.invalidate()
+//                true
+//            }
+//            DragEvent.ACTION_DRAG_LOCATION -> true
+//            DragEvent.ACTION_DRAG_EXITED -> {
+//                view.invalidate()
+//                true
+//            }
+//            DragEvent.ACTION_DROP -> {
+//                val item = event.clipData.getItemAt(0)
+//                val dragData = item.text
+//                Toast.makeText(this,dragData, Toast.LENGTH_SHORT).show()
+//
+//                view.invalidate()
+//
+//                val v = event.localState as View
+//                val owner = v.parent as ViewGroup
+//                owner.removeView(v)
+//                val destination = view as LinearLayout
+//                destination.addView(v)
+//                v.visibility = View.VISIBLE
+//                true
+//            }
+//            DragEvent.ACTION_DRAG_ENDED -> {
+//                view.invalidate()
+//                true
+//            }
+//            else -> false
+//
+//        }
+//    }
 
     //19. Notifications
 //    fun createNotificationChannel(){
@@ -598,7 +698,7 @@ class MainActivity : AppCompatActivity() {
 //            commit()
 //        }
 
-        //todo 21. Toolbar Menu
+        //todo 24. Toolbar Menu
 //        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //            menuInflater.inflate(R.menu.app_bar_menu,menu)
 //            return true
