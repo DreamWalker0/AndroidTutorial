@@ -33,6 +33,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.costume_toast.*
 import kotlinx.android.synthetic.main.drawer_layout_manu.*
+import kotlinx.android.synthetic.main.intent_service_sample.*
 import kotlinx.android.synthetic.main.notifications_example.*
 import kotlinx.android.synthetic.main.share_data_layout.*
 
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.notifications_example)
+        setContentView(R.layout.intent_service_sample)
 
         /**
          * New way
@@ -507,7 +508,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //todo 19. Notifications
-        //refer to notifications_example
+        //refer to notifications_example, fun createNotificationChannel()
         //call function to create a notification channel
 //        createNotificationChannel()
 //
@@ -531,6 +532,22 @@ class MainActivity : AppCompatActivity() {
 //        //For showing the notification by clicking the button
 //        btnShowNotification.setOnClickListener {
 //            notificationManager.notify(NOTIFICATION_ID,notification)
+//        }
+
+        //todo 20. Intent Service
+        //refer to intent_service_sample, class MyIntentService.kt added <service> to AndroidManifest.xml
+        //App works even if minimized
+
+//        btnStartService.setOnClickListener {
+//            Intent(this, MyIntentService::class.java).also {
+//                startService(it)
+//                tvServiceInfo.text = "Service running"
+//            }
+//        }
+//
+//        btnStopService.setOnClickListener {
+//            MyIntentService.stopService()
+//            tvServiceInfo.text = "Service stopped"
 //        }
 
 
@@ -581,7 +598,7 @@ class MainActivity : AppCompatActivity() {
 //            commit()
 //        }
 
-        //todo 20. Toolbar Menu
+        //todo 21. Toolbar Menu
 //        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //            menuInflater.inflate(R.menu.app_bar_menu,menu)
 //            return true
