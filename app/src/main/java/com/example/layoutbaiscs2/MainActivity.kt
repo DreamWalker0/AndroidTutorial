@@ -5,10 +5,12 @@
 package com.example.layoutbaiscs2
 
 import android.Manifest
-import android.app.Activity
-import android.app.AlertDialog
+import android.app.*
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +23,8 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -29,16 +33,22 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.costume_toast.*
 import kotlinx.android.synthetic.main.drawer_layout_manu.*
+import kotlinx.android.synthetic.main.notifications_example.*
 import kotlinx.android.synthetic.main.share_data_layout.*
 
 class MainActivity : AppCompatActivity() {
 
-    //17.
+    //17.Slidable menu with Navigation Drawer
     lateinit var toggle: ActionBarDrawerToggle
+
+    //19. Notifications
+    val CHANNEL_ID = "channelID"
+    val CHANNEL_NAME = "channelName"
+    val  NOTIFICATION_ID = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.share_data_layout)
+        setContentView(R.layout.notifications_example)
 
         /**
          * New way
@@ -496,7 +506,32 @@ class MainActivity : AppCompatActivity() {
 //        }
 
 
-        //todo 19.
+        //todo 19. Notifications
+        //refer to notifications_example
+        //call function to create a notification channel
+//        createNotificationChannel()
+//
+//        //For being able to access app by clicking on the notification
+//        val intent = Intent(this,MainActivity::class.java)
+//        val pendingIntent = TaskStackBuilder.create(this).run {
+//            addNextIntentWithParentStack(intent)
+//            getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT)
+//        }
+//
+//        val notification = NotificationCompat.Builder(this,CHANNEL_ID)
+//            .setContentTitle("Interesting Notification")
+//            .setContentText("This is the content text")
+//            .setSmallIcon(R.drawable.ic_eye)
+//            .setPriority(NotificationCompat.PRIORITY_HIGH)
+//            .setContentIntent(pendingIntent)
+//            .build()
+//
+//        val notificationManager = NotificationManagerCompat.from(this)
+//
+//        //For showing the notification by clicking the button
+//        btnShowNotification.setOnClickListener {
+//            notificationManager.notify(NOTIFICATION_ID,notification)
+//        }
 
 
 
@@ -510,6 +545,28 @@ class MainActivity : AppCompatActivity() {
     //END OnCreate
     }
 
+    //19. Notifications
+//    fun createNotificationChannel(){
+//        //Build.VERSION_CODES.O is for android Oreo to check if the app is running in android Oreo or later
+//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+//            //create channel, IMPORTANCE_HIGH means the notification will have sound
+//            val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
+//                NotificationManager.IMPORTANCE_HIGH).apply {
+//                //this changes the LED light color!!!!
+//                lightColor = Color.GREEN
+//                enableLights(true)
+//
+//            }
+//            //Cast as NotificationManager
+//            val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//            manager.createNotificationChannel(channel)
+//
+//        }
+//    }
+
+
+
+    // 17. Slidable menu with Navigation Drawer
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        if (toggle.onOptionsItemSelected(item)){
 //            return true
